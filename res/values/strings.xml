@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LTC Mining Profitability</string>
+    <string name="action_about">About</string>
+    <string name="coin">Coin Name</string>
+    <string name="algo">Algo</string>
+    <string name="blocks">Blocks</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="reward">Reward</string>
+    <string name="price">Best Price</string>
+    <string name="exchange">Exchange</string>
+    <string name="profitability">Profitability</string>
+    <string name="pleaseWait">Please wait for data ...</string>
+    <string name="sortDESC">▼</string>
+    <string name="sortASC">▲</string>
+    <string name="refresh">Refresh</string>
+
+</resources>
