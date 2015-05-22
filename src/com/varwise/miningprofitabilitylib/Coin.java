@@ -30,9 +30,28 @@ public class Coin {
 		this.name = json.getString("name");
 		this.ratio = json.getDouble("ratio");
 		this.price = json.getDouble("price");
-		this.difficulty = json.getDouble("difficulty");
-		this.currentBlocks = json.getString("currentBlocks");
+		if (isDouble(json.getString("difficulty"))) {
+			this.difficulty = json.getDouble("difficulty");
+		}
+		else {
+			this.difficulty = 0.0;
+		}
+		if(json.getString("currentBlocks").equals("null")){
+			this.currentBlocks = "unknown";
+		}
+		else{
+			this.currentBlocks = json.getString("currentBlocks");
+		}
 
+	}
+
+	private boolean isDouble(String str) {
+		try {
+			Double.parseDouble(str);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
 	}
 
 	public TableRow toTableRow(Context context, OnClickListener clickListener) {
@@ -51,7 +70,12 @@ public class Coin {
 		TextView tv = new TextView(context);
 		tv.setPadding(5, 5, 5, 5);
 		tv.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.cell_shape));
-		tv.setText(String.format(format, property));
+		if(property == 0.0){
+			tv.setText("unknown");
+		}
+		else{
+			tv.setText(String.format(format, property));
+		}
 		tv.setOnClickListener(clickListener);
 		return tv;
 	}
